@@ -2,10 +2,10 @@ here: [https://laplaciannin102.github.io/](https://laplaciannin102.github.io/)
 
 # **Profile**
 
+<br>
+
 ## **Name**
 - laplaciannin102
-
-<br>
 
 ## **Self-portrait**
 いぬ
@@ -33,7 +33,8 @@ here: [https://laplaciannin102.github.io/](https://laplaciannin102.github.io/)
 - JavaScript
 - VBA
 - VB\.NET
-etc.
+
+etc...
 
 <br>
 <br>
@@ -63,3 +64,6 @@ etc.
 ## **Account**
 - [GitHub](https://github.com/laplaciannin102)
 - [Twitter]()
+
+<br>
+<br>
