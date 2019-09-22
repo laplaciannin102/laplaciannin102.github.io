@@ -1,0 +1,11 @@
+body {
+    background-color: #CEF9DC;
+}
+
+h1, h2, h3 {
+    background-color: #00F9A9;
+}
+
+table, th, td {
+    border: 1.5px solid black;
+}
