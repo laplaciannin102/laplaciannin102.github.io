@@ -13,6 +13,29 @@ ___
 
 <br>
 
+## **説明1**
+- [東工大数学科](https://educ.titech.ac.jp/math/)卒
+- [数理の翼](https://www.npo-tsubasa.jp/)(29回)
+- [都数](https://tosuu.web.fc2.com/)(幽霊)
+
+<br>
+
+## **説明2**
+- [東工プロジェクト](https://twitter.com/toukouproject)(創設)
+- SOS団 at 東工大支部
+- [Mellow Pretty](https://www.mellowpretty.com/)
+- 東方Lシューター, 天則Ph
+
+<br>
+
+## **使用キャラ**
+- 非想天則: 西瓜, 幽々子
+- Splatoon2: 寿司, スプラローラー, デュアルスイーパーカスタム
+- 競プロとか: Python, C#
+
+<br>
+<br>
+
 ## **経験言語**
 - Python
 - R
@@ -39,28 +62,6 @@ etc...
 
 <br>
 <br>
-
-## **説明1**
-- [東工大数学科](https://educ.titech.ac.jp/math/)卒
-- [数理の翼](https://www.npo-tsubasa.jp/)(29回)
-- [都数](https://tosuu.web.fc2.com/)(幽霊)
-
-<br>
-
-## **説明2**
-- [東工プロジェクト](https://twitter.com/toukouproject)(創設)
-- SOS団 at 東工大支部
-- [Mellow Pretty](https://www.mellowpretty.com/)
-- 東方Lシューター, 天則Ph
-
-<br>
-
-## **使用キャラ**
-- 非想天則: 西瓜, 幽々子
-- Splatoon2: 寿司, スプラローラー, デュアルスイーパーカスタム
-- 競プロとか: Python, C#
-
-<br><br>
 
 ## **Links**
 - [GitHub](https://github.com/laplaciannin102/)

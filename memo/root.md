@@ -57,7 +57,7 @@ To Be Edited
 
 ## **Links**
 - [GitHub](https://github.com/laplaciannin102/)
-- [profile for twitter](for_twitter/)
+- [Profile for twitter](for_twitter/)
 
 <br>
 <br>
