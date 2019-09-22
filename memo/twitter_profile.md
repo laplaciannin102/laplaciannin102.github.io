@@ -3,17 +3,17 @@ ___
 
 # **Profile for twitter**
 
-## **Handle name**
+## **名前**
 - 杏仁豆腐
 
-## **Self-portrait**
-いぬ
+## **アイコン**
+いか
 
-<img width="200" alt="ｲｯﾇ" src="../assets/img/inu.png">
+<img width="200" alt="ika" src="../assets/img/nanika_pink.png"><br>
 
 <br>
 
-## **Experienced programming languages**
+## **経験言語**
 - Python
 - R
 - SQL
@@ -23,12 +23,13 @@ ___
 - JavaScript
 - VBA
 - VB\.NET
+- html
 
 etc...
 
 <br>
 
-## **Jobs**
+## **職歴**
 
 |No.    |業種       |企業規模   |職種               |
 |:-:    |:-:        |:-:        |:-:                |
@@ -39,14 +40,14 @@ etc...
 <br>
 <br>
 
-## **ChoiMajime**
+## **説明1**
 - [東工大数学科](https://educ.titech.ac.jp/math/)卒
 - [数理の翼](https://www.npo-tsubasa.jp/)(29回)
 - [都数](https://tosuu.web.fc2.com/)(幽霊)
 
 <br>
 
-## **FuMajime**
+## **説明2**
 - [東工プロジェクト](https://twitter.com/toukouproject)(創設)
 - SOS団 at 東工大支部
 - [Mellow Pretty](https://www.mellowpretty.com/)
@@ -63,7 +64,7 @@ etc...
 
 ## **Links**
 - [GitHub](https://github.com/laplaciannin102/)
-  - 設計図共有サイト
+  - 謎の設計図共有サイト
 - [Twitter](https://twitter.com/mq_spark/)
   - 青い鳥
 - [Tenco!](https://tenco.info/game/2/account/mqmqspark/)
@@ -73,3 +74,11 @@ etc...
 <br>
 <br>
 <br>
+<br>
+<br>
+工事中...
+<br>
+<br>
+<br>
+<br>
+

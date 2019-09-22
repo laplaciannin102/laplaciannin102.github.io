@@ -1,18 +1,21 @@
 here: [https://laplaciannin102.github.io/](https://laplaciannin102.github.io/)
 ___
 
-# **Profile for twitter**
+# **Profile**
 
 ## **Name**
 - koske
 
 ## **Self-portrait**
+i am a dog
 
-<img width="200" alt="ｲｯﾇ" src="./assets/img/inu.png">
+<img width="200" alt="ｲｯﾇ" src="./assets/img/inu.png"><br>
 
 <br>
 
-## **Experienced programming languages**
+## **Skills**
+
+### **Programming languages**
 - Python
 - R
 - SQL
@@ -22,12 +25,16 @@ ___
 - JavaScript
 - VBA
 - VB\.NET
+- html
 
 etc...
 
+### **Others**
+To Be Edited
+
 <br>
 
-## **Jobs**
+## **Career**
 
 |No.    |業種       |企業規模   |職種               |
 |:-:    |:-:        |:-:        |:-:                |
@@ -37,6 +44,7 @@ etc...
 
 <br>
 <br>
+
 
 ## **Education**
 - Tokyo Institute of Technology
