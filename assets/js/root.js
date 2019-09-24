@@ -1,3 +1,8 @@
+document.onselectstart='';
+document.onmousedown='';
+document.body.onselectstart='';
+document.body.onmousedown='';
+
 function showRika() {
   var aa_obj = document.getElementById("AA_txt")
 
