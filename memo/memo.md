@@ -15,7 +15,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
- ```
+```
 
 ## for_twitter
 
@@ -34,7 +34,12 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
- ```
+```
+
+```html
+<p><img width="200" alt="ika" src="../assets/img/nanika_pink.png" onselectstart="return false;" onmousedown="return false;"><br></p>
+```
+
 
 ```html
 <br>
