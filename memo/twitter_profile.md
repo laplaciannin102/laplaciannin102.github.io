@@ -70,6 +70,8 @@ etc...
   - 青い鳥
 - [Tenco!](https://tenco.info/game/2/account/mqmqspark/)
   - 非想天則レーティングシステム
+- [Bookmark Pages](bookmark_pages/)
+  - 杏仁豆腐のブックマーク
 
 <br>
 <br>

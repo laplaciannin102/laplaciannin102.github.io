@@ -58,6 +58,7 @@ To Be Edited
 ## **Links**
 - [GitHub](https://github.com/laplaciannin102/)
 - [Profile for twitter](for_twitter/)
+- [Bookmark Pages](bookmark_pages/)
 
 <br>
 <br>
