@@ -63,7 +63,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>杏仁豆腐のBookmark</title>
+<title>Bookmark</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <script type="text/javascript" src="../assets/js/bookmark_pages.js"></script>
@@ -82,7 +82,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>杏仁豆腐のOthers_Bookmark</title>
+<title>Others_Bookmark</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <script type="text/javascript" src="../assets/js/bookmark_pages.js"></script>
