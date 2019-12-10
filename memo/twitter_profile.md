@@ -36,22 +36,6 @@ ___
 <br>
 <br>
 
-## **経験言語**
-- Python
-- R
-- SQL
-- C++
-- C#
-- Java
-- JavaScript
-- VBA
-- VB\.NET
-- html
-
-etc...
-
-<br>
-
 ## **職歴**
 
 |No.    |業種       |企業規模   |職種               |
