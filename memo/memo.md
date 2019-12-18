@@ -57,6 +57,12 @@
 
 ## bookmark_pages
 
+### 戻る
+
+```html
+<p><a href="./index.html"><font size="5" color="blue">戻る</font></a></p>
+```
+
 ### index
 
 ```html
