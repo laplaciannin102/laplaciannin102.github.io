@@ -8,539 +8,71 @@
 <link rel="shortcut icon" href="../assets/ico/nanika_big.ico" type="image/vnd.microsoft.icon">
 <link rel="stylesheet" type="text/css" href="../assets/css/bookmark_pages.css">
 <style>
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
-	font-size: 14px;
-	padding: 0 12px;
-	line-height: 22px;
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	color: #4080D0;
-	text-decoration: none;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-h1 code,
-h2 code,
-h3 code,
-h4 code,
-h5 code,
-h6 code {
-	font-size: inherit;
-	line-height: auto;
-}
-
-a:hover {
-	color: #4080D0;
-	text-decoration: underline;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left: 5px solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 14px;
-	line-height: 19px;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-.mac code {
-	font-size: 12px;
-	line-height: 18px;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-/** Theming */
-
-.vscode-light,
-.vscode-light pre code {
-	color: rgb(30, 30, 30);
-}
-
-.vscode-dark,
-.vscode-dark pre code {
-	color: #DDD;
-}
-
-.vscode-high-contrast,
-.vscode-high-contrast pre code {
-	color: white;
-}
-
-.vscode-light code {
-	color: #A31515;
-}
-
-.vscode-dark code {
-	color: #D7BA7D;
-}
-
-.vscode-light pre:not(.hljs),
-.vscode-light code > div {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre:not(.hljs),
-.vscode-dark code > div {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre:not(.hljs),
-.vscode-high-contrast code > div {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-.vscode-light blockquote,
-.vscode-dark blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.vscode-high-contrast blockquote {
-	background: transparent;
-	border-color: #fff;
-}
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
 
 </style>
-
 </head>
 <body>
-<p>here: <a href="https://laplaciannin102.github.io/bookmark_pages/python_bookmark.html">https://laplaciannin102.github.io/bookmark_pages/python_bookmark.html</a></p>
-<hr>
-<p>[工事中]<br>
-杏仁豆腐がブックマークしたページです。<br>
-さらに増える予定なので今後はカテゴリごとにページを分ける予定(:TODO)。<br>
-<br></p>
-<h1 id="python-bookmark-pages"><strong>Python Bookmark Pages</strong></h1>
-<h2 id="python"><strong>Python</strong></h2>
-<h3 id="%E5%85%A8%E8%88%AC">全般</h3>
-<ul>
-<li>
-<p><a href="http://www.tohoho-web.com/python/index.html">Python入門</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://www.python-izm.com/">Python-izm</a></p>
-<ul>
-<li>プログラミング言語Pythonの習得を目的としたサイト
-<br></li>
-</ul>
-</li>
-<li>
-<p><a href="http://www.turbare.net/transl/scipy-lecture-notes/packages/sympy.html">3.2.Sympy:Pythonでの代数計算—Scipylecturenotes</a>
-<br></p>
-</li>
-</ul>
-<h3 id="numpy">Numpy</h3>
-<ul>
-<li><a href="https://note.nkmk.me/python-numpy-where/">NumPyで条件に応じた処理を行うwhereの使い方</a>
-<br></li>
-</ul>
-<h3 id="pandas">Pandas</h3>
-<ul>
-<li>
-<p><a href="https://pandas.pydata.org/pandas-docs/stable/options.html">OptionsandSettings—pandas0.23.4documentation</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://medium.com/music-and-technology/pandas-dataframe%E3%81%AE%E8%A1%A8%E7%A4%BA%E3%82%92%E7%9C%81%E7%95%A5%E3%81%97%E3%81%9F%E3%81%8F%E3%81%AA%E3%81%84%E6%99%82-cda70f79cadc">PandasDataFrameの表示を省略したくない時–MusicandTechnology–Medium</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://pythondatascience.plavox.info/pandas/%E8%A1%8C%E3%83%BB%E5%88%97%E3%81%AE%E6%8A%BD%E5%87%BA">Pandasでデータフレームから特定の行・列を取得する–Pythonでデータサイエンス</a>
-<br></p>
-</li>
-<li>
-<p><a href="http://ailaby.com/lox_iloc_ix/">pandasのloc、iloc、ixの違い–python|コード７区</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://pythondatascience.plavox.info/pandas/%E8%A1%8C%E3%83%BB%E5%88%97%E3%82%92%E5%89%8A%E9%99%A4">Pandasのデータフレームの特定の行・列を削除する–Pythonでデータサイエンス</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-reset-index/">pandas.DataFrame,Seriesのインデックスを振り直すreset_index|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-duplicated-drop-duplicates/">pandas.DataFrame,Seriesの重複した行を抽出・削除|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-sort-values-sort-index/">pandas.DataFrame,Seriesをソートするsort_values,sort_index|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-assign-append/">pandas.DataFrameに列や行を追加（assign,appendなど）|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-dataframe-for-iteration/">pandas.DataFrameのforループ処理（イテレーション）|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-drop/">pandas.DataFrameの行・列を指定して削除するdrop|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-get-dummies/">pandasでカテゴリ変数をダミー変数に変換（get_dummies）|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-value-counts/">pandasでユニークな要素の個数、頻度（出現回数）をカウント|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-nan-dropna-fillna/">pandasで欠損値NaNを除外（削除）・置換（穴埋め）・抽出|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://uyamazak.hatenablog.com/entry/2016/09/29/163534">pandasで表示が省略されるのを防ぐ-GAミント至上主義</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-map-applymap-apply/">pandasで要素、行、列に関数を適用するmap,applymap,apply|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="http://own-search-and-study.xyz/2016/08/03/pandas%E3%81%AEplot%E3%81%AE%E5%85%A8%E5%BC%95%E6%95%B0%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%99/">Pandasのplotの全引数を解説|自調自考の旅</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://own-search-and-study.xyz/2015/09/03/pandas%E3%81%AEread_csv%E3%81%AE%E5%85%A8%E5%BC%95%E6%95%B0%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%99/">Pandasのread_csvの全引数を解説|自調自考の旅</a>
-<br></p>
-</li>
-<li>
-<p><a href="http://python-remrin.hatenadiary.jp/entry/2017/05/08/212120">pandasの使い方（２）　DataFrameの生成-Remrinのpython攻略日記</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://www.python.ambitious-engineer.com/archives/1096">pandas入門DataFrame基本統計量の算出-Python学習講座</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://matplotlib.org/examples/pylab_examples/custom_ticker1.html">pylab_examples examplecode:custom_ticker1.py—Matplotlib2.0.2documentation</a>
-<br></p>
-</li>
-<li>
-<p><a href="http://sinhrks.hatenablog.com/entry/2015/01/28/073327">Python pandas 図でみるデータ連結/結合処理-StatsFragments</a>
-<br></p>
-</li>
-<li>
-<p><a href="http://kunai-lab.hatenablog.jp/entry/2018/04/08/134924">pandas.DataFrameのforループをゆるふわ△改良して300倍高速化する-くないらぼ</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-pandas-to-csv/">pandasでcsvファイルの書き出し・追記（to_csv）|note.nkmk.me</a>
-<br></p>
-</li>
-<li>
-<p><a href="http://d.hatena.ne.jp/civilclothes/20140529/1401357962">PandasでMergeする時の基礎的な振る舞い-CivilClothes</a>
-<br></p>
-</li>
-</ul>
-<h3 id="matplotlib">matplotlib</h3>
-<ul>
-<li><a href="https://matplotlib.org/3.1.1/tutorials/introductory/sample_plots.html">Sample plots in Matplotlib</a>
-<br></li>
-</ul>
-<h3 id="%E5%88%A4%E5%AE%9A">判定</h3>
-<ul>
-<li>
-<p><a href="https://note.nkmk.me/python-str-num-determine/">Pythonで文字列が数字か英字か英数字か判定・確認</a>
-<br></p>
-</li>
-<li>
-<p><a href="https://note.nkmk.me/python-check-int-float/">Pythonで数値が整数か小数かを判定</a>
-<br></p>
-</li>
-</ul>
-<p><br><br><br></p>
-<p><a href="./index.html"><font size="5" color="blue">戻る</font></a></p>
-<p><br><br><br><br></p>
+<p>here: <a href="https://laplaciannin102.github.io/bookmark_pages/python_bookmark.html">https://laplaciannin102.github.io/bookmark_pages/python_bookmark.html</a></p>
+<hr />
+<p>[工事中]<br> 杏仁豆腐がブックマークしたページです。<br> さらに増える予定なので今後はカテゴリごとにページを分ける予定(:TODO)。<br> <br></p>
+<h1 id="python-bookmark-pages"><strong>Python Bookmark Pages</strong></h1>
+<h2 id="python"><strong>Python</strong></h2>
+<ul>
+<li><a href="http://www.turbare.net/transl/scipy-lecture-notes/packages/sympy.html"><font size="4" color="blue">3.2.Sympy:Pythonでの代数計算—Scipylecturenotes</font></a> <br><br></li>
+</ul>
+<h3 id="numpy">Numpy</h3>
+<ul>
+<li><a href="https://note.nkmk.me/python-numpy-where/"><font size="4" color="blue">NumPyで条件に応じた処理を行うwhereの使い方</font></a> <br><br></li>
+</ul>
+<h3 id="pandas">Pandas</h3>
+<ul>
+<li><p><a href="https://pandas.pydata.org/pandas-docs/stable/options.html"><font size="4" color="blue">OptionsandSettings—pandas0.23.4documentation</font></a> <br><br></p></li>
+<li><p><a href="https://medium.com/music-and-technology/pandas-dataframe%E3%81%AE%E8%A1%A8%E7%A4%BA%E3%82%92%E7%9C%81%E7%95%A5%E3%81%97%E3%81%9F%E3%81%8F%E3%81%AA%E3%81%84%E6%99%82-cda70f79cadc"><font size="4" color="blue">PandasDataFrameの表示を省略したくない時–MusicandTechnology–Medium</font></a> <br><br></p></li>
+<li><p><a href="http://d.hatena.ne.jp/civilclothes/20140529/1401357962"><font size="4" color="blue">PandasでMergeする時の基礎的な振る舞い-CivilClothes</font></a> <br><br></p></li>
+<li><p><a href="https://pythondatascience.plavox.info/pandas/%E8%A1%8C%E3%83%BB%E5%88%97%E3%81%AE%E6%8A%BD%E5%87%BA"><font size="4" color="blue">Pandasでデータフレームから特定の行・列を取得する–Pythonでデータサイエンス</font></a> <br><br></p></li>
+<li><p><a href="http://own-search-and-study.xyz/2016/08/03/pandas%E3%81%AEplot%E3%81%AE%E5%85%A8%E5%BC%95%E6%95%B0%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%99/"><font size="4" color="blue">Pandasのplotの全引数を解説|自調自考の旅</font></a> <br><br></p></li>
+<li><p><a href="https://own-search-and-study.xyz/2015/09/03/pandas%E3%81%AEread_csv%E3%81%AE%E5%85%A8%E5%BC%95%E6%95%B0%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%99/"><font size="4" color="blue">Pandasのread_csvの全引数を解説|自調自考の旅</font></a> <br><br></p></li>
+<li><p><a href="https://pythondatascience.plavox.info/pandas/%E8%A1%8C%E3%83%BB%E5%88%97%E3%82%92%E5%89%8A%E9%99%A4"><font size="4" color="blue">Pandasのデータフレームの特定の行・列を削除する–Pythonでデータサイエンス</font></a> <br><br></p></li>
+<li><p><a href="http://sinhrks.hatenablog.com/entry/2015/01/28/073327"><font size="4" color="blue">Python pandas 図でみるデータ連結/結合処理-StatsFragments</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-reset-index/"><font size="4" color="blue">pandas.DataFrame,Seriesのインデックスを振り直すreset_index|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-duplicated-drop-duplicates/"><font size="4" color="blue">pandas.DataFrame,Seriesの重複した行を抽出・削除|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-sort-values-sort-index/"><font size="4" color="blue">pandas.DataFrame,Seriesをソートするsort_values,sort_index|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-assign-append/"><font size="4" color="blue">pandas.DataFrameに列や行を追加（assign,appendなど）|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="http://kunai-lab.hatenablog.jp/entry/2018/04/08/134924"><font size="4" color="blue">pandas.DataFrameのforループをゆるふわ△改良して300倍高速化する-くないらぼ</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-dataframe-for-iteration/"><font size="4" color="blue">pandas.DataFrameのforループ処理（イテレーション）|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-drop/"><font size="4" color="blue">pandas.DataFrameの行・列を指定して削除するdrop|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-to-csv/"><font size="4" color="blue">pandasでcsvファイルの書き出し・追記（to_csv）|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-get-dummies/"><font size="4" color="blue">pandasでカテゴリ変数をダミー変数に変換（get_dummies）|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-value-counts/"><font size="4" color="blue">pandasでユニークな要素の個数、頻度（出現回数）をカウント|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-nan-dropna-fillna/"><font size="4" color="blue">pandasで欠損値NaNを除外（削除）・置換（穴埋め）・抽出|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="https://uyamazak.hatenablog.com/entry/2016/09/29/163534"><font size="4" color="blue">pandasで表示が省略されるのを防ぐ-GAミント至上主義</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-pandas-map-applymap-apply/"><font size="4" color="blue">pandasで要素、行、列に関数を適用するmap,applymap,apply|note.nkmk.me</font></a> <br><br></p></li>
+<li><p><a href="http://ailaby.com/lox_iloc_ix/"><font size="4" color="blue">pandasのloc、iloc、ixの違い–python|コード７区</font></a> <br><br></p></li>
+<li><p><a href="http://python-remrin.hatenadiary.jp/entry/2017/05/08/212120"><font size="4" color="blue">pandasの使い方（２）　DataFrameの生成-Remrinのpython攻略日記</font></a> <br><br></p></li>
+<li><p><a href="https://www.python.ambitious-engineer.com/archives/1096"><font size="4" color="blue">pandas入門DataFrame基本統計量の算出-Python学習講座</font></a> <br><br></p></li>
+<li><p><a href="https://matplotlib.org/examples/pylab_examples/custom_ticker1.html"><font size="4" color="blue">pylab_examples examplecode:custom_ticker1.py—Matplotlib2.0.2documentation</font></a> <br><br></p></li>
+</ul>
+<h3 id="matplotlib">matplotlib</h3>
+<ul>
+<li><a href="https://matplotlib.org/3.1.1/tutorials/introductory/sample_plots.html"><font size="4" color="blue">Sample plots in Matplotlib</font></a> <br><br></li>
+</ul>
+<h3 id="全般">全般</h3>
+<ul>
+<li><p><a href="http://www.turbare.net/transl/scipy-lecture-notes/packages/sympy.html"><font size="4" color="blue">3.2.Sympy:Pythonでの代数計算—Scipylecturenotes</font></a> <br><br></p></li>
+<li><a href="https://www.python-izm.com/"><font size="4" color="blue">Python-izm</font></a>
+<ul>
+<li>プログラミング言語Pythonの習得を目的としたサイト <br><br></li>
+</ul></li>
+<li><p><a href="http://www.tohoho-web.com/python/index.html"><font size="4" color="blue">Python入門</font></a> <br><br></p></li>
+</ul>
+<h3 id="判定">判定</h3>
+<ul>
+<li><p><a href="https://note.nkmk.me/python-check-int-float/"><font size="4" color="blue">Pythonで数値が整数か小数かを判定</font></a> <br><br></p></li>
+<li><p><a href="https://note.nkmk.me/python-str-num-determine/"><font size="4" color="blue">Pythonで文字列が数字か英字か英数字か判定・確認</font></a> <br><br></p></li>
+</ul>
+<p><br><br><br></p>
+<p><a href="./index.html">戻る</a></p>
+<p><br><br><br><br></p>
 
 </body>
 </html>
