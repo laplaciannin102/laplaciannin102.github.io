@@ -56,6 +56,8 @@ ___
   - 非想天則レーティングシステム
 - [Bookmark Pages](../bookmark_pages/index.html)
   - 杏仁豆腐のブックマーク
+- [Blog](https://laplaciannin102.github.io/laplaciannin102_articles/)
+  - 杏仁豆腐の備忘録
 
 <br>
 <br>

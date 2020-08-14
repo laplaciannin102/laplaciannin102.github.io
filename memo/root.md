@@ -59,6 +59,7 @@ To Be Edited
 - [GitHub](https://github.com/laplaciannin102/)
 - [Profile for twitter](for_twitter/)
 - [Bookmark Pages](bookmark_pages/)
+- [Blog](https://laplaciannin102.github.io/laplaciannin102_articles/)
 
 <br>
 <br>
