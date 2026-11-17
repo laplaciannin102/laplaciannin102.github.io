@@ -1,4 +1,4 @@
 /* デザイン 01: モノ・ホワイト. 土台(profile.css)→ 明るい配色の共通部品 → 01 の上書き */
-@import url("./profile.css");
-@import url("./themes/_light.css");
-@import url("./themes/01_mono_white.css");
+@import url("./profile.css?v=20261117b");
+@import url("./themes/light_base.css?v=20261117b");
+@import url("./themes/01_mono_white.css?v=20261117b");

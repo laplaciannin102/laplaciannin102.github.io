@@ -1,4 +1,4 @@
-/* 01. モノ・ホワイト: 白地に等幅フォント。黒い細枠と角のそろった影。_light.css の後に読み込む */
+/* 01. モノ・ホワイト: 白地に等幅フォント。黒い細枠と角のそろった影。light_base.css の後に読み込む */
 :root {
   --bg: #fbfbf8;
   --card: #ffffff;
@@ -6,10 +6,10 @@
   --chip: #eef0e8;
   --text: #0f1410;
   --ink2: #1f2a22;
-  --muted: #5d6b60;
+  --muted: #3d4a40;
   --border: #0f1410;
   --accent: #047857;
-  --accent-2: #0d9488;
+  --accent-2: #047857;
   --radius-lg: 4px;
   --radius-md: 4px;
 }
@@ -107,4 +107,11 @@ h1 { word-break: keep-all; overflow-wrap: anywhere; }
 /* 等幅のURLが狭い画面で途中折れしないよう小さくする */
 @media (max-width: 700px) {
   .topline { font-size: 0.68rem; }
+}
+
+/* 文字が薄く見えないよう、補助色と小さな文字を濃くする(スマホの屋外などでも読める) */
+.skill-level { color: #065f46; }
+@media (max-width: 700px) {
+  body { color: #0f1410; }
+  h3, .hero-note, .publication-meta, .publication-desc, .footer-note { color: #2f3b32; }
 }
