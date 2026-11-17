@@ -1,12 +1,5 @@
-@import url("./profile.css");
-
-:root {
-  --accent: #f19ac0;
-  --accent-2: #8ee7ff;
-}
-
+/* for_twitter ページだけの追加分(theme-NN.css の後に読み込む) */
 .avatar {
   object-fit: contain;
   padding: 4px;
-  background: linear-gradient(145deg, rgba(241,154,192,0.10), rgba(142,231,255,0.06));
 }

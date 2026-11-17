@@ -7,7 +7,10 @@
   <meta name="description" content="koske / らぷらし杏仁豆腐 profile">
   <title>koske / らぷらし杏仁豆腐 — Profile</title>
   <link rel="shortcut icon" href="./assets/ico/lap102_big.ico" type="image/vnd.microsoft.icon">
-  <link rel="stylesheet" href="./assets/css/root.css">
+  <link rel="stylesheet" href="./assets/css/theme-01.css?v=20261117" data-theme="01">
+  <link rel="stylesheet" href="./assets/css/theme-02.css?v=20261117" data-theme="02" media="not all">
+  <script>(function(){try{var t=localStorage.getItem("profile-theme"),ls=document.querySelectorAll("link[data-theme]"),ok=false;ls.forEach(function(l){if(l.getAttribute("data-theme")===t)ok=true;});if(ok)ls.forEach(function(l){l.media=l.getAttribute("data-theme")===t?"all":"not all";});}catch(e){}})();</script>
+  <link rel="stylesheet" href="./assets/css/theme-switch.css?v=20261117">
 </head>
 <body>
   <main class="shell">
@@ -108,6 +111,11 @@
         </ul>
       </section>
     </div>
+
+    <div class="theme-switch" role="group" aria-label="デザインの切り替え">
+      <span class="ts-label">Design</span><button type="button" data-theme-btn="01" aria-pressed="false">01 Mono White</button><button type="button" data-theme-btn="02" aria-pressed="false">02 Light Dark</button>
+    </div>
+    <script src="./assets/js/theme-switch.js?v=20261117"></script>
   </main>
 </body>
 </html>

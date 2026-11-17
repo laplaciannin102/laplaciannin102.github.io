@@ -1,0 +1,38 @@
+/* ページ最下部のデザイン切り替えスイッチ. 色は各案が持つ変数(--text, --bg, --muted, --border)に合わせる */
+.theme-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 48px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.theme-switch .ts-label { margin-right: 4px; }
+
+.theme-switch button {
+  appearance: none;
+  min-height: 40px;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-switch button:hover { color: var(--text); border-color: var(--text); }
+
+.theme-switch button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.theme-switch button[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--text);
+  border-color: var(--text);
+}

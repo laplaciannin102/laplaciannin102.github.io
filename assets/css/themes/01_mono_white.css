@@ -1,0 +1,110 @@
+/* 01. モノ・ホワイト: 白地に等幅フォント。黒い細枠と角のそろった影。_light.css の後に読み込む */
+:root {
+  --bg: #fbfbf8;
+  --card: #ffffff;
+  --soft: #f3f4ef;
+  --chip: #eef0e8;
+  --text: #0f1410;
+  --ink2: #1f2a22;
+  --muted: #5d6b60;
+  --border: #0f1410;
+  --accent: #047857;
+  --accent-2: #0d9488;
+  --radius-lg: 4px;
+  --radius-md: 4px;
+}
+
+body {
+  font-family: "JetBrains Mono", "Cascadia Mono", "SFMono-Regular", Consolas, "Noto Sans JP", "Yu Gothic UI", monospace;
+  font-size: 15px;
+  background:
+    linear-gradient(rgba(4, 120, 87, .06) 1px, transparent 1px) 0 0 / 100% 28px,
+    #fbfbf8;
+}
+
+a { text-decoration: underline; }
+a:hover { color: #fff; background: var(--accent); text-decoration: none; }
+
+.hero,
+.section-card {
+  border: 1.5px solid var(--text);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--text);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.section-card:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--text); }
+
+.hero { box-shadow: 6px 6px 0 var(--accent); }
+
+::selection { background: #bbf7d0; color: var(--text); }
+
+.topline { font-size: .8rem; }
+.eyebrow::before { content: "$ "; color: var(--muted); }
+.eyebrow { text-transform: none; letter-spacing: .04em; }
+
+h1 {
+  font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+h1::before { content: "> "; color: var(--accent); }
+h1::after { content: "_"; color: var(--accent); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+h2 { font-size: 1rem; letter-spacing: 0; }
+h2::before { content: "## "; color: var(--accent); }
+h3 { text-transform: none; letter-spacing: .02em; }
+h3::before { content: "# "; }
+
+.section-head { border-bottom: 1.5px solid var(--text); }
+
+.avatar { border-radius: 3px; border: 1.5px solid var(--text); box-shadow: 4px 4px 0 var(--accent); }
+
+.clean-list li { border-radius: 3px; border-color: var(--text); background: #fff; }
+.skill-group { border-radius: 3px; border-color: var(--text); background: #fff; }
+.skill-level { border-radius: 2px; }
+.skill-level::before { content: "["; }
+.skill-level::after { content: "]"; }
+
+.table-wrap { border-color: var(--text); border-radius: 3px; }
+th, td { border-bottom-color: rgba(15, 20, 16, .25); }
+
+.link-list > li > a {
+  border-color: var(--text);
+  border-radius: 3px;
+  min-height: 0;
+  background: #fff;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.link-list > li > a::before { content: "→ "; color: var(--accent); }
+.link-list > li > a:hover { background: var(--accent); border-color: var(--text); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--text); }
+.link-list > li > a:hover .link-title,
+.link-list > li > a:hover::before { color: #fff; }
+
+.plain-list li::marker { content: "- "; color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  h1::after { animation: none; }
+  .link-list > li > a:hover { transform: none; }
+  .hero, .section-card { transition: none; }
+  .section-card:hover { transform: none; }
+}
+
+@media (max-width: 700px) {
+  body { font-size: 14px; }
+  h1 { font-size: clamp(1.5rem, 7.4vw, 2.1rem); }
+  .hero, .section-card { box-shadow: 4px 4px 0 var(--text); }
+  .hero { box-shadow: 4px 4px 0 var(--accent); }
+  tbody tr { border-color: var(--text); border-radius: 3px; background: #fff; }
+}
+
+/* 名前は「koske /」と「らぷらし杏仁豆腐」の間でだけ折り返す(漢字の途中で折れないように) */
+h1 { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* 等幅のURLが狭い画面で途中折れしないよう小さくする */
+@media (max-width: 700px) {
+  .topline { font-size: 0.68rem; }
+}

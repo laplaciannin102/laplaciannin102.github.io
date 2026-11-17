@@ -1,0 +1,53 @@
+/* 明るい配色の案の共通部品. 現行(ダーク)CSS が決め打ちしている白い半透明の色を, 変数で置き換える.
+   各案は変数(--bg など)と見た目の個性だけ上書きする. */
+:root {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --soft: #f6f7f9;
+  --chip: #f1f3f6;
+  --text: #16181d;
+  --ink2: #2d333b;
+  --muted: #667085;
+  --border: #e4e7ec;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+body {
+  color: var(--text);
+  background: var(--bg);
+}
+
+body::before { display: none; }
+
+a { color: var(--accent); }
+a:hover { color: var(--text); }
+
+.hero,
+.section-card {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.avatar { border-color: var(--border); background: var(--soft); box-shadow: 0 6px 18px rgba(16, 24, 40, 0.12); }
+h1 { color: var(--text); }
+.hero-name, .link-title, .publication-title { color: var(--text); }
+.clean-list li { color: var(--ink2); background: var(--chip); border-color: var(--border); }
+.skill-group { background: var(--soft); }
+.skill-item, .plain-list { color: var(--ink2); }
+.skill-level { color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, #fff); border-color: color-mix(in srgb, var(--accent) 25%, #fff); }
+th { color: var(--ink2); background: var(--soft); }
+tbody tr:hover td { background: var(--soft); }
+.link-list > li > a { background: var(--soft); }
+.link-list > li > a:hover { background: color-mix(in srgb, var(--accent) 8%, #fff); border-color: var(--accent); }
+.footer-note { color: var(--muted); }
+.easter-egg button { background: var(--soft); }
+.easter-egg button:hover { background: var(--chip); }
+
+@media (max-width: 700px) {
+  tbody tr { background: var(--soft); }
+  td:first-child { color: var(--accent); }
+}

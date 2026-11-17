@@ -7,7 +7,11 @@
   <meta name="description" content="杏仁豆腐 profile for twitter">
   <title>杏仁豆腐 — Profile for twitter</title>
   <link rel="shortcut icon" href="../assets/ico/nanika_big.ico" type="image/vnd.microsoft.icon">
-  <link rel="stylesheet" href="../assets/css/for_twitter.css?v=20260822b">
+  <link rel="stylesheet" href="../assets/css/theme-01.css?v=20261117" data-theme="01">
+  <link rel="stylesheet" href="../assets/css/theme-02.css?v=20261117" data-theme="02" media="not all">
+  <script>(function(){try{var t=localStorage.getItem("profile-theme"),ls=document.querySelectorAll("link[data-theme]"),ok=false;ls.forEach(function(l){if(l.getAttribute("data-theme")===t)ok=true;});if(ok)ls.forEach(function(l){l.media=l.getAttribute("data-theme")===t?"all":"not all";});}catch(e){}})();</script>
+  <link rel="stylesheet" href="../assets/css/for_twitter.css?v=20261117">
+  <link rel="stylesheet" href="../assets/css/theme-switch.css?v=20261117">
   <script defer src="../assets/js/for_twitter.js?v=20260822b"></script>
 </head>
 <body>
@@ -128,6 +132,11 @@
       <button type="button" onclick="delAA()">Clear</button>
     </div>
     <div id="AA_txt"></div>
+
+    <div class="theme-switch" role="group" aria-label="デザインの切り替え">
+      <span class="ts-label">Design</span><button type="button" data-theme-btn="01" aria-pressed="false">01 Mono White</button><button type="button" data-theme-btn="02" aria-pressed="false">02 Light Dark</button>
+    </div>
+    <script src="../assets/js/theme-switch.js?v=20261117"></script>
   </main>
 </body>
 </html>

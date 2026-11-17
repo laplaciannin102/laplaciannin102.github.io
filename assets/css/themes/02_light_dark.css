@@ -1,0 +1,107 @@
+/* 02. ライト + ダーク: OS の設定でライト(ブログの青緑に揃えた白基調)とダークが自動で切り替わる */
+:root {
+  --accent: #2aa5b3;
+  --accent-2: #5ad1c4;
+}
+
+@media not (prefers-color-scheme: dark) {
+  :root {
+    --bg: #f4f7f7;
+    --bg-soft: #ffffff;
+    --surface: #ffffff;
+    --border: #d6dfe0;
+    --text: #1f2933;
+    --muted: #5d6b75;
+    --accent: #0b6e78;
+    --accent-2: #1d9a8a;
+    --shadow: 0 10px 30px rgba(15, 60, 66, 0.08);
+  }
+
+  body {
+    background:
+      radial-gradient(34rem 20rem at 8% -4%, rgba(11,110,120,.10), transparent 70%),
+      radial-gradient(30rem 18rem at 100% 6%, rgba(29,154,138,.08), transparent 70%),
+      #f4f7f7;
+  }
+
+  body::before {
+    opacity: .5;
+    background-image: linear-gradient(rgba(11,110,120,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,110,120,.05) 1px, transparent 1px);
+  }
+
+  a { color: var(--accent); }
+  a:hover { color: #08545c; }
+
+  .hero, .section-card {
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .avatar { border-color: var(--border); background: #eef3f3; box-shadow: 0 10px 24px rgba(15,60,66,.14); }
+  h1 { color: #14262b; }
+  .hero-name, .link-title, .publication-title { color: var(--text); }
+  .clean-list li { color: #2b3a42; background: #f1f6f6; }
+  .skill-group { background: #f8fbfb; }
+  .skill-item, .plain-list { color: #2b3a42; }
+  .skill-level { color: var(--accent); background: #e6f3f4; border-color: #c9e3e5; }
+  th { color: #32434b; background: #eef4f4; }
+  tbody tr:hover td { background: #f6fafa; }
+  .link-list > li > a { background: #f8fbfb; }
+  .link-list > li > a:hover { background: #ecf6f6; border-color: var(--accent); }
+  .footer-note { color: #7b8991; }
+  td:first-child { color: var(--accent); }
+  .easter-egg button { background: #f1f6f6; }
+  .easter-egg button:hover { background: #e6f3f4; }
+}
+
+@media not (prefers-color-scheme: dark) and (max-width: 700px) {
+  tbody tr { background: #f8fbfb; }
+}
+
+/* 名前は「koske /」と「らぷらし杏仁豆腐」の間でだけ折り返す(漢字の途中で折れないように) */
+h1 { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* ---- 見た目の調整(ライト・ダーク共通) ---- */
+::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+.hero-copy { padding-left: 10px; }
+h1 { font-size: clamp(2rem, 4.4vw, 2.8rem); letter-spacing: -0.045em; }
+
+.section-head { border-bottom: 0; padding-bottom: 0; margin-bottom: 16px; }
+h2 { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+h2::before {
+  content: "";
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.section-card { transition: border-color 180ms ease, box-shadow 180ms ease; }
+.section-card:hover { border-color: color-mix(in srgb, var(--accent) 38%, var(--border)); }
+
+.link-list > li > a { position: relative; min-height: 64px; justify-content: center; }
+.link-list > li > a::after { content: "↗"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.link-list > li > a:hover::after { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .hero::before { width: 4px; }
+  .hero-copy { padding-left: 6px; }
+  h1 { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .link-list > li > a { min-height: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-card { transition: none; }
+}

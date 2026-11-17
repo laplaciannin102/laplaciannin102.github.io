@@ -157,6 +157,7 @@ h1 {
 
 .avatar {
   width: clamp(128px, 22vw, 188px);
+  height: auto; /* HTML の height="200" 属性に引きずられて縦長になるのを防ぐ */
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 30%;
@@ -167,11 +168,13 @@ h1 {
 
 .content-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr); /* 中の表が広くても列を押し広げない */
   gap: 18px;
   margin-top: 18px;
 }
 
 .section-card {
+  min-width: 0;
   padding: clamp(24px, 4vw, 34px);
   border-radius: var(--radius-md);
 }
@@ -431,33 +434,162 @@ td:first-child {
 }
 
 @media (max-width: 700px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.7;
+  }
+
   .shell {
-    width: min(calc(100% - 22px), var(--max-width));
-    padding-top: 28px;
+    width: min(calc(100% - 24px), var(--max-width));
+    padding: max(20px, env(safe-area-inset-top)) 0 max(56px, env(safe-area-inset-bottom));
   }
 
   .topline {
     align-items: flex-start;
     flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+    overflow-wrap: anywhere;
   }
 
   .hero {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding: 24px 20px;
   }
 
   .avatar {
     grid-row: 1;
-    width: 116px;
+    justify-self: start;
+    width: 96px;
+    height: auto;
   }
 
   h1 {
-    font-size: clamp(2rem, 10vw, 3.1rem);
+    font-size: clamp(1.7rem, 8.4vw, 2.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
+  }
+
+  .content-grid {
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .section-card {
+    padding: 20px 18px;
+  }
+
+  .section-head {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .link-list,
   .skill-groups {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .link-list > li > a {
+    min-height: 52px;
+    justify-content: center;
+  }
+
+  .skill-item {
+    align-items: flex-start;
+  }
+
+  /* Career の表: 横スクロールではなく, 1行ずつカードにして縦に並べる */
+  .table-wrap {
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 2px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  td {
+    padding: 0;
+    border: 0;
+    white-space: normal;
+    text-align: left;
+  }
+
+  td:first-child {
+    grid-row: 1 / span 4;
+    align-self: start;
+    color: var(--accent-2);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    text-align: left;
+  }
+
+  td:nth-child(2) {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  td:nth-child(3) {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  td:nth-child(4),
+  td:nth-child(5) {
+    color: var(--muted);
+    font-size: 0.84rem;
+  }
+
+  td:nth-child(4)::before {
+    content: "企業規模: ";
+  }
+
+  tbody tr:hover td {
+    background: none;
+  }
+
+  #AA_txt {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .shell {
+    width: calc(100% - 16px);
+  }
+
+  .section-card,
+  .hero {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }
 
